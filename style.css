@@ -1,0 +1,138 @@
+body {
+    font-family: 'Comfortaa', cursive, sans-serif;
+    margin: 20px;
+    background-color: #fff0f5; /* Lavender Blush - very light pink */
+    color: #556b2f; /* Dark Olive Green - gentle */
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 30px 20px;
+    background-color: #f0fff0; /* Honeydew - very light green */
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+header h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #8fbc8f; /* Dark Sea Green - soft */
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.blog-container {
+    /* Container for all blog posts */
+}
+
+.blog-post {
+    background-color: #f8f8f8; /* Light gray */
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.blog-post h2 {
+    color: #556b2f;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.post-meta {
+    color: #8fbc8f;
+    font-style: italic;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+.blog-post img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.blog-post p {
+    color: #556b2f;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.read-more {
+    display: inline-block;
+    background-color: #8fbc8f;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+.read-more:hover {
+    background-color: #6b8e23; /* Olive Drab - slightly darker */
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.pagination button {
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #556b2f;
+    background-color: #f0fff0;
+    border: 1px solid #8fbc8f;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    background-color: #ddd;
+    color: #888;
+    border-color: #ccc;
+    cursor: not-allowed;
+}
+
+.page-numbers {
+    display: inline-block;
+}
+
+.page-number {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #556b2f;
+    background-color: #f0fff0;
+    border: 1px solid #8fbc8f;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.page-number.current {
+    background-color: #8fbc8f;
+    color: white;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    color: #8fbc8f;
+    font-size: 0.9em;
+}

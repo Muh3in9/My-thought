@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Little Thoughts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🌸 My Little Thoughts 🌼</h1>
+        <p>Sharing my little corner of the internet!</p>
+    </header>
+    <main>
+        <div class="blog-container">
+            <article class="blog-post">
+                <h2>A Day at the Park 🌳</h2>
+                <p class="post-meta">Posted on April 18, 2025 by [Your Name]</p>
+                <img src="park-scene.jpg" alt="A sunny day at the park">
+                <p>The sun was shining, the birds were singing, and the air was filled with the sweet scent of blooming flowers. I spent a lovely afternoon at the park today, just enjoying the simple joys of nature...</p>
+                <a href="park-day.html" class="read-more">Read More</a>
+            </article>
+
+            <article class="blog-post">
+                <h2>My Favorite Rainy Day Activities 🌧️</h2>
+                <p class="post-meta">Posted on April 15, 2025 by [Your Name]</p>
+                <img src="rainy-day.jpg" alt="Cozy rainy day scene">
+                <p>When the rain starts to fall, and the world outside turns gray, I love to curl up with a warm blanket and a good book. Here are a few of my favorite things to do on a cozy rainy day...</p>
+                <a href="rainy-day.html" class="read-more">Read More</a>
+            </article>
+
+            <article class="blog-post">
+                <h2>The Joy of Baking Cookies 🍪</h2>
+                <p class="post-meta">Posted on April 10, 2025 by [Your Name]</p>
+                <img src="cookie-baking.jpg" alt="Baking cookies">
+                <p>There's something so comforting about the smell of freshly baked cookies filling the house. Today, I tried a new recipe for chocolate chip cookies, and they turned out so yummy!</p>
+                <a href="cookie.html" class="read-more">Read More</a>
+            </article>
+
+            <article class="blog-post">
+                <h2>A Quiet Evening with a Book 📖</h2>
+                <p class="post-meta">Posted on April 5, 2025 by [Your Name]</p>
+                <img src="reading-corner.jpg" alt="Cozy reading corner">
+                <p>Sometimes, the best way to unwind is with a good book and a cup of tea. I just finished a wonderful novel about a little adventure in a faraway land...</p>
+                <a href="reading-evening.html" class="read-more">Read More</a>
+            </article>
+        </div>
+
+        <div class="pagination">
+            <button id="prevPage">Previous</button>
+            <div class="page-numbers">
+                <span class="page-number" data-page="1">1</span>
+                <span class="page-number" data-page="2">2</span>
+            </div>
+            <button id="nextPage">Next</button>
+        </div>
+    </main>
+    <footer>
+        <p>Sharing little moments. &copy; 2025 My Little Thoughts</p>
+    </footer>
+
+    <script>
+        const blogContainer = document.querySelector('.blog-container');
+        const blogPosts = document.querySelectorAll('.blog-post');
+        const prevPageButton = document.getElementById('prevPage');
+        const nextPageButton = document.getElementById('nextPage');
+        const pageNumbersContainer = document.querySelector('.page-numbers');
+        const pageNumberLinks = document.querySelectorAll('.page-number');
+
+        const postsPerPage = 2;
+        let currentPage = 1;
+        const totalPages = Math.ceil(blogPosts.length / postsPerPage);
+
+        function displayPosts(page) {
+            const startIndex = (page - 1) * postsPerPage;
+            const endIndex = startIndex + postsPerPage;
+
+            blogPosts.forEach((post, index) => {
+                if (index >= startIndex && index < endIndex) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        }
+
+        function updatePagination() {
+            pageNumberLinks.forEach(link => {
+                link.classList.remove('current');
+                if (parseInt(link.dataset.page) === currentPage) {
+                    link.classList.add('current');
+                }
+            });
+
+            if (currentPage === 1) {
+                prevPageButton.disabled = true;
+            } else {
+                prevPageButton.disabled = false;
+            }
+
+            if (currentPage === totalPages && totalPages > 0) {
+                nextPageButton.disabled = true;
+            } else {
+                nextPageButton.disabled = false;
+            }
+        }
+
+        prevPageButton.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                displayPosts(currentPage);
+                updatePagination();
+            }
+        });
+
+        nextPageButton.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                displayPosts(currentPage);
+                updatePagination();
+            }
+        });
+
+        pageNumberLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                const pageNumber = parseInt(this.dataset.page);
+                if (pageNumber !== currentPage) {
+                    currentPage = pageNumber;
+                    displayPosts(currentPage);
+                    updatePagination();
+                }
+            });
+        });
+
+        // Initial setup
+        displayPosts(currentPage);
+        updatePagination();
+    </script>
+</body>
+</html>
